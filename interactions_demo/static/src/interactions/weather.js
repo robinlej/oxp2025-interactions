@@ -14,6 +14,25 @@ export class Weather extends Interaction {
             "t-att-class": () => ({ "row": !!this.locationName }),
         },
         "#weather-location-input": { "t-on-change": this.onInputChange },
+
+        /* Dynamic selectors: _root, _body, _window, _document */
+        // _body: {
+        //     "t-att-style": () => ({
+        //         "background-color": this.locationName.toLowerCase() === "sun" ? "yellow" : undefined,
+        //     }),
+        // },
+
+        /* Initial value */
+        _root: {
+            "t-att-style": () => ({
+                "border": this.locationInputEl.value ? "1px solid black" : Interaction.INITIAL_VALUE,
+            }),
+        },
+
+        /* Inject an OWL component */
+        // ".selector": {
+        //     "t-component": () => [Component, { someProp: "value" }] },
+        // },
     };
 
     /**
@@ -23,6 +42,7 @@ export class Weather extends Interaction {
     setup() {
         this.locationName = this.el.dataset.locationName;
         this.cardsContainerEl = this.el.querySelector(".weather-cards-container");
+        this.locationInputEl = this.el.querySelector("#weather-location-input");
     }
 
     /**
