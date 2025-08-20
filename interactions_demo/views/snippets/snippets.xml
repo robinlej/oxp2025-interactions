@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- Add the weather snippet to the "Add snippets" dialog, within the "content"
+category.
+Note that you could also add an entirely new category, given the right xpath. -->
+<template id="snippets" inherit_id="website.snippets">
+    <xpath expr="//t[@t-snippet='website.s_text_image']" position="before">
+        <t t-snippet="interactions_demo.s_weather" string="Weather Forecast" group="content">
+            <keywords>weather, forecast, climate</keywords>
+        </t>
+    </xpath>
+</template>
+
+</odoo>

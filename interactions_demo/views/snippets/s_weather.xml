@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+<template id="interactions_demo.s_weather" name="Weather Forecast Snippet">
+    <section>
+        <div class="container s_weather">
+            <h1 class="text-center">Hello World!</h1>
+        </div>
+    </section>
+</template>
+
+</odoo>
