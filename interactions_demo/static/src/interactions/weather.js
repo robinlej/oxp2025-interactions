@@ -6,6 +6,17 @@ import { Interaction } from "@web/public/interaction";
 export class Weather extends Interaction {
     static selector = ".s_weather";
 
+    dynamicSelectors = {
+        /* Available dynamicSelectors by default:
+           - _root (this.el)
+           - _body
+           - _document
+           - _window
+        */
+        ...this.dynamicSelectors,
+        _locationInput: () => this.locationInputEl,
+    };
+
     dynamicContent = {
         ".weather-location-name": {
             "t-out": () => this.locationName.charAt(0).toUpperCase() + this.locationName.slice(1),
@@ -13,7 +24,7 @@ export class Weather extends Interaction {
         ".weather-cards-container": {
             "t-att-class": () => ({ "row": !!this.locationName }),
         },
-        "#weather-location-input": { "t-on-change": this.onInputChange },
+        _locationInput: { "t-on-change": this.onInputChange },
 
         /* Dynamic selectors: _root, _body, _window, _document */
         // _body: {
@@ -23,11 +34,11 @@ export class Weather extends Interaction {
         // },
 
         /* Initial value */
-        _root: {
-            "t-att-style": () => ({
-                "border": this.locationInputEl.value ? "1px solid black" : Interaction.INITIAL_VALUE,
-            }),
-        },
+        // _root: {
+        //     "t-att-style": () => ({
+        //         "border": this.locationInputEl.value ? "1px solid black" : Interaction.INITIAL_VALUE,
+        //     }),
+        // },
 
         /* Inject an OWL component */
         // ".selector": {
@@ -108,7 +119,7 @@ export class Weather extends Interaction {
     }
 
     async onInputChange(ev) {
-        this.locationName = ev.currentTarget.value;
+        this.locationName = ev.currentTarget.value || this.el.dataset.locationName;
         this.weatherData = await this.waitFor(
             rpc("/interactions_demo/get_weather", { location: this.locationName })
         );
