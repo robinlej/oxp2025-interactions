@@ -2,9 +2,28 @@
 <odoo>
 
 <template id="interactions_demo.s_weather" name="Weather Forecast Snippet">
-    <section>
-        <div class="container s_weather">
-            <h1 class="text-center">Hello World!</h1>
+    <section class="pt32 pb32 s_weather">
+        <div class="container">
+            <h2 class="h5">Weather in Brussels</h2>
+            <div class="row align-items-center">
+                <t t-foreach="[
+                        ('Monday', 'clouds', '14'),
+                        ('Tuesday', 'rain', '12'),
+                        ('Wednesday', 'sun', '18'),
+                        ('Thursday', 'sun_clouds', '18'),
+                        ('Friday', 'clouds', '16')
+                    ]" t-as="day">
+                    <div class="card col mx-2 p-0">
+                        <img class="card-img-top img-fluid" t-att-src="'/interactions_demo/static/src/img/' + day[1] + '.svg'" t-att-alt="day[1]"/>
+                        <div class="card-body">
+                            <div class="h6" t-out="day[0]"/>
+                            <p class="h5 card-title">
+                                <t t-out="day[2]"/>°C
+                            </p>
+                        </div>
+                    </div>
+                </t>
+            </div>
         </div>
     </section>
 </template>
