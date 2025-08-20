@@ -4,8 +4,8 @@
 <template id="s_weather" name="Weather Forecast Snippet">
     <section class="pt32 pb32 s_weather" data-location-name="Brussels">
         <div class="container">
-            <h2 class="h5"><span class="weather-location-name"/>'s Weather</h2>
-            <label for="weather-location-input">
+            <h2 class="h5"><span class="weather-location-name o_not_editable"/>'s Weather</h2>
+            <label for="weather-location-input o_not_editable">
                 What's the weather in:
                 <input id="weather-location-input" name="weather-location-input" type="text" placeholder="Brussels"/>
             </label>

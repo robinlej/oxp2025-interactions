@@ -130,7 +130,3 @@ export class Weather extends Interaction {
 registry
     .category("public.interactions")
     .add("interactions_demo.weather", Weather);
-
-registry
-    .category("public.interactions.edit")
-    .add("interactions_demo.weather", { Interaction: Weather });
