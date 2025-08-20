@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+<t t-name="interactions_demo.WeatherOption">
+<BuilderRow label.translate="Theme">
+    <BuilderSelect>
+        <BuilderSelectItem classAction="''">Light</BuilderSelectItem>
+        <BuilderSelectItem classAction="'bg-dark text-white'">Dark</BuilderSelectItem>
+    </BuilderSelect>
+</BuilderRow>
+</t>
+
+</templates>
