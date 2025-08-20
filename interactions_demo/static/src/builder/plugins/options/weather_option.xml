@@ -1,13 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates xml:space="preserve">
 
+<!-- Existing shorthand actions are:
+     - classAction
+     - attributeAction
+     - dataAttributeAction
+     - styleAction
+
+     You can combine any of them together, as well as one custom action, on the
+     same option.
+
+     If you need several custom actions on the same option, check for examples
+     of the `compositeAction` (grep `action="'composite'"` in community).
+-->
 <t t-name="interactions_demo.WeatherOption">
-<BuilderRow label.translate="Theme">
-    <BuilderSelect>
-        <BuilderSelectItem classAction="''">Light</BuilderSelectItem>
-        <BuilderSelectItem classAction="'bg-dark text-white'">Dark</BuilderSelectItem>
-    </BuilderSelect>
-</BuilderRow>
+    <BuilderRow label.translate="Default Location">
+        <BuilderTextInput dataAttributeAction="'locationName'"/>
+    </BuilderRow>
+    <BuilderRow label.translate="Title">
+        <BuilderSelect action="'weatherTitle'">
+            <BuilderSelectItem actionValue="'classic'">Classic</BuilderSelectItem>
+            <BuilderSelectItem actionValue="'unicorny'">Unicorny</BuilderSelectItem>
+        </BuilderSelect>
+    </BuilderRow>
+</t>
+
+<t t-name="interactions_demo.WeatherThemeOption">
+    <BuilderRow label.translate="Theme">
+        <!-- BuilderButtonGroup: when one button is active, others are inactive. -->
+        <!-- Other builder components include:
+             - BuilderColorPicker
+             - BuilderCheckbox
+             - BuilderNumberInput
+             - BuilderRange
+             - BuilderDateTimePicker
+             - BuilderUrlPicker
+             - BuilderMany2One / BuilderMany2Many
+             - BuilderList
+        -->
+        <BuilderButtonGroup>
+            <BuilderButton icon="'fa-sun-o'" title.translate="Light" classAction="''"></BuilderButton>
+            <BuilderButton icon="'fa-moon-o'" title.translate="Dark" classAction="'weather-dark'"></BuilderButton>
+        </BuilderButtonGroup>
+    </BuilderRow>
 </t>
 
 </templates>
