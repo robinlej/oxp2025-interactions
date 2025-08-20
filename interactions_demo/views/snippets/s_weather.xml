@@ -5,7 +5,13 @@
     <section class="pt32 pb32 s_weather" data-location-name="Brussels">
         <div class="container">
             <h2 class="h5"><span class="weather-location-name"/>'s Weather</h2>
-            <!-- <div class="row align-items-center s_dialog_preview">
+            <label for="weather-location-input">
+                What's the weather in:
+                <input id="weather-location-input" name="weather-location-input" type="text" placeholder="Brussels"/>
+            </label>
+
+            <!-- "Add snippet" dialog preview with the `.s_dialog_preview` class -->
+            <div class="row align-items-center s_dialog_preview">
                 <t t-foreach="[
                         ('Monday', 'clouds', '14'),
                         ('Tuesday', 'rain', '12'),
@@ -23,7 +29,7 @@
                         </div>
                     </div>
                 </t>
-            </div> -->
+            </div>
             <div class="align-items-center my-3 weather-cards-container"/>
         </div>
     </section>
