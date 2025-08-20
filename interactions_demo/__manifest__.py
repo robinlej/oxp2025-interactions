@@ -29,6 +29,10 @@
     'assets': {
         'web.assets_frontend': [
             'interactions_demo/static/src/interactions/**/*',
+            ('remove', 'interactions_demo/static/src/interactions/**/*.edit.js'),
+        ],
+        'website.assets_edit_frontend': [
+            'interactions_demo/static/src/**/*.edit.js',
         ],
     },
     'license': 'LGPL-3',
